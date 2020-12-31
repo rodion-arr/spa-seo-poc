@@ -1,10 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
 import { Helmet } from "react-helmet";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App () {
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/test">
+            <Test />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+function Home () {
+  return (
+    <>
       <Helmet>
         <meta charset="utf-8" />
         <title>SPA site | SEO test </title>
@@ -19,7 +41,7 @@ function App () {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
-        </p>
+    </p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -27,9 +49,40 @@ function App () {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+    </a>
       </header>
-    </div>
+    </>
+  );
+}
+
+function Test () {
+  return (
+    <>
+      <Helmet>
+        <meta charset="utf-8" />
+        <title>TEST</title>
+        <meta name="description" content="TEST | SPA SEO test description" />
+        <meta name="keywords" content="" />
+
+        <meta name="application-name" content="SPA React test page" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      </Helmet>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          TEST!!!!
+    </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React TEST
+    </a>
+      </header>
+    </>
   );
 }
 
