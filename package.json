@@ -18,6 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://rodion-arr.github.io/spa-seo-poc",
   "eslintConfig": {
     "extends": [
       "react-app",
