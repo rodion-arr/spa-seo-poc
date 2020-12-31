@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Helmet } from "react-helmet";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
