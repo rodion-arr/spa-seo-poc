@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import logo from './logo.svg';
 import './App.css';
 import { Helmet } from "react-helmet";
@@ -26,31 +26,28 @@ function App () {
 }
 
 function Home () {
-  const [seoReady, setSeoReady] = useState(false);
+  const [seoTitle, setSeoTitle] = useState('');
 
   useEffect(() => {
-    setTimeout(() => {
-      setSeoReady(true);
-    }, 1000)
+    let timing = 0;
+    setInterval(() => {
+      timing += 100;
+      setSeoTitle(`${timing} - SEO title updated`)
+    }, 100)
   }, [])
-
-  let seoComponent = null;
-  if (seoReady) {
-    seoComponent = <Helmet>
-    <meta charset="utf-8" />
-    <title>SPA site | SEO test </title>
-    <meta name="description" content="SPA SEO test description" />
-    <meta name="keywords" content="" />
-
-    <meta name="application-name" content="SPA React test" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  </Helmet>
-  }
 
   return (
     <>
-      {seoComponent}
+      <Helmet>
+        <meta charset="utf-8" />
+        <title>{seoTitle}</title>
+        <meta name="description" content="SPA SEO test description" />
+        <meta name="keywords" content="" />
+
+        <meta name="application-name" content="SPA React test" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      </Helmet>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
