@@ -67,18 +67,31 @@ function Home () {
 }
 
 function Test () {
+  const [seoReady, setSeoReady] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSeoReady(true);
+    }, 5000)
+  }, [])
+
+  let seoComponent = null;
+  if (seoReady) {
+    seoComponent = <Helmet>
+    <meta charset="utf-8" />
+    <title>TEST</title>
+    <meta name="description" content="TEST | SPA SEO test description" />
+    <meta name="keywords" content="" />
+
+    <meta name="application-name" content="SPA React test" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  </Helmet>
+  }
+
   return (
     <>
-      <Helmet>
-        <meta charset="utf-8" />
-        <title>TEST</title>
-        <meta name="description" content="TEST | SPA SEO test description" />
-        <meta name="keywords" content="" />
-
-        <meta name="application-name" content="SPA React test page" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-      </Helmet>
+      {seoComponent}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
